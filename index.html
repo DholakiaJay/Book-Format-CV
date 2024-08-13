@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+      input {
+        display: none;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #28282b;
+      }
+      .book {
+        height: 600px;
+        width: 450px;
+        background-color: whitesmoke;
+        /* border-right: 3px solid whitesmoke;
+        border-bottom: 3px solid whitesmoke; */
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        position: relative;
+        perspective: 2000px;
+        backdrop-filter: blur(27px);
+      }
+      .book-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-image: url("https://media.licdn.com/dms/image/D4D12AQHSMDOPb9YPhg/article-cover_image-shrink_720_1280/0/1684390609012?e=2147483647&v=beta&t=IBa97pBYsaCt7jk1A4xMjTu3vyj5XR0V4hSpTkLb2Ks");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: larger;
+        font-weight: 300;
+      }
+      .btn {
+        bottom: 0%;
+        left: 86%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-weight: 900;
+        padding: 3px;
+        font-size: larger;
+        animation: next 1.2s infinite linear;
+      }
+      @keyframes next {
+        0% {
+          color: grey;
+        }
+        50% {
+          color: rgba(0, 81, 255, 0.445);
+        }
+        100% {
+          color: rgb(9, 177, 9);
+          font-weight: 900;
+          transform: translateX(6px) scale(1);
+        }
+      }
+      @keyframes pre {
+        0% {
+          color: grey;
+        }
+        50% {
+          color: rgba(0, 81, 255, 0.445);
+        }
+        100% {
+          color: red;
+          font-weight: 900;
+          transform: translateX(-6px) scale(1);
+          
+        }
+      }
+      .bbtn {
+        bottom: 0%;
+        right: 86%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: black;
+        font-weight: 900;
+        padding: 3px;
+        font-size: larger;
+        animation: pre 1.2s infinite linear;
+      }
+      span {
+        padding: 6px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.284);
+        transition: all 360ms;
+      }
+      span:hover
+      {
+        background-color: #28282b;
+        color: white;
+        transform: scale(1.1);
+        border-radius: 18px;
+        
+        
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+      .cover .front img,
+      .cover .back img {
+        object-fit: cover;
+      }
+      .book-page #book1 {
+        background-color: white;
+        perspective: 2000px;
+      }
+
+      .lan {
+        height: 6px;
+        width: 300px;
+        background-color: lightgrey;
+        border-radius: 27px;
+      }
+      .range {
+        height: inherit;
+        width: inherit;
+        background-color: green;
+        border-radius: 27px;
+        display: flex;
+      }
+      
+    
+
+h4
+{
+  margin-left:8px ;
+}
+
+      #html
+      {
+        animation: htmlrange 6s infinite linear;
+        
+        
+      }
+      #css
+      {
+        animation: cssrange 6s infinite linear;
+        
+      }
+
+      
+      #js {
+
+        animation: jsrange 6s infinite linear;
+        width: 9%;
+      }
+      #java {
+        width: 63%;
+        animation: javarange 6s infinite linear;
+      } 
+
+     
+      
+      
+
+      @keyframes htmlrange 
+      {
+        0%
+        {
+          width: 15%;
+
+        }
+        15%
+        {
+          width: 30%;
+        }
+        30%
+        {
+          width: 50%;
+        }
+        50%
+        {
+          width: 75%;
+        }
+        75%
+        {
+          width: 100%;
+        }
+        80%
+        
+        {
+          width: 93%;
+          
+        }
+        85%
+        
+        {
+          width: 93%;
+          
+        }
+        90%
+        
+        {
+          width: 93%;
+          
+        }95%
+        
+        {
+          width: 93%;
+          
+        }
+        100%
+        
+        {
+          background-color: green;
+          width: 93%;
+          
+        }
+        
+      }
+
+      @keyframes javarange 
+      {
+        0%
+        {
+          width: 15%;
+
+        }
+        15%
+        {
+          width: 30%;
+        }
+        30%
+        {
+          width: 50%;
+        }
+        50%
+        {
+          width: 75%;
+        }
+        75%
+        {
+          width: 100%;
+        }
+        80%
+        
+        {
+          width: 63%;
+          
+        }
+        85%
+        
+        {
+          width: 63%;
+          
+        }
+        90%
+        
+        {
+          width: 63%;
+          
+        }95%
+        
+        {
+          width: 63%;
+          
+        }
+        100%
+        
+        {
+      background-color: blue ;
+          width: 63%;
+          
+        }
+        
+      }
+
+      @keyframes cssrange 
+      {
+        0%
+        {
+          width: 15%;
+
+        }
+        15%
+        {
+          width: 30%;
+        }
+        30%
+        {
+          width: 50%;
+        }
+        50%
+        {
+          width: 75%;
+        }
+        75%
+        {
+          width: 100%;
+        }
+        80%
+        
+        {
+          width: 93%;
+          
+        }
+        85%
+        
+        {
+          width: 93%;
+          
+        }
+        90%
+        
+        {
+          width: 93%;
+          
+        }95%
+        
+        {
+          width: 93%;
+          
+        }
+        100%
+        
+        {
+          background-color: aqua;
+          width: 93%;
+          
+        }
+        
+      }
+      @keyframes jsrange 
+      {
+        0%
+        {
+          width: 15%;
+
+        }
+        15%
+        {
+          width: 30%;
+        }
+        30%
+        {
+          width: 50%;
+        }
+        50%
+        {
+          width: 75%;
+        }
+        75%
+        {
+          width: 100%;
+        }
+        80%
+        
+        {
+          width: 9%;
+          
+        }
+        85%
+        
+        {
+          width: 9%;
+          
+        }
+        90%
+        
+        {
+          width: 9%;
+          
+        }95%
+        
+        {
+          width: 9%;
+          
+        }
+        100%
+        
+        {
+          background-color:red ;
+          transition-delay: 900ms;
+          width: 9%;
+          
+        }
+        
+      }
+
+
+
+      .cover {
+        transition: all 900ms;
+        z-index: 9;
+      }
+      .myinfo {
+        transition: all 900ms;
+        z-index: 8;
+      }
+      .scinfo {
+        transition: all 900ms;
+        z-index: 7;
+      }
+      .winfo {
+        transition: all 900ms;
+        z-index: 6;
+      }
+      .crinfo {
+        transition: all 900ms;
+        z-index: 5;
+      }
+      .hinfo {
+        transition: all 900ms;
+        z-index: 4;
+      }
+      .finfo {
+        transition: all 900ms;
+        z-index: 3;
+      }
+      .skinfo {
+        transition: all 900ms;
+        z-index: 2;
+      }
+      .kinfo {
+        transition: all 900ms;
+        z-index: 1;
+      }
+
+      #c1:checked ~ .cover {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+
+        z-index: 9;
+      }
+      #c2:checked ~ .cover {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 9;
+      }
+
+      #m1:checked ~ .myinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #m2:checked ~ .myinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 8;
+      }
+
+      #s1:checked ~ .scinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #s2:checked ~ .scinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 7;
+      }
+
+      #w1:checked ~ .winfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #w2:checked ~ .winfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 6;
+      }
+      #cr1:checked ~ .crinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #cr2:checked ~ .crinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 5;
+      }
+
+      #h1:checked ~ .hinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #h2:checked ~ .hinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 4;
+      }
+
+      #f1:checked ~ .finfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #f2:checked ~ .finfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 3;
+      }
+      #sk1:checked ~ .skinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        z-index: 9;
+      }
+      #sk2:checked ~ .skinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 2;
+      }
+      #k1:checked ~ .kinfo {
+        transition: transform 0.6s;
+        transform-origin: left;
+        transform: rotateY(180deg);
+        
+        z-index: 9;
+      }
+
+      #k2:checked ~ .kinfo {
+        transition: all 900ms;
+        transform-origin: left;
+        transform: rotateY(0deg);
+        z-index: 1;
+      }
+
+      .cover,
+      .myinfo,
+      .scinfo,
+      .winfo,
+      .crinfo,
+      .hinfo,
+      .finfo,
+      .skinfo,
+      .kinfo {
+        background-color: white;
+        color: black;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transform-style: preserve-3d;
+        border: 3px solid black;
+      }
+
+      .cover .front,
+      .cover .back,
+      .myinfo .front,
+      .myinfo .back,
+      .scinfo .front,
+      .scinfo .back,
+      .winfo .front,
+      .winfo .back,
+      .crinfo .front,
+      .crinfo .back,
+      .hinfo .front,
+      .hinfo .back,
+      .finfo .front,
+      .finfo .back,
+      .skinfo .front,
+      .skinfo .back,
+      .kinfo .front,
+      .kinfo .back {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 27px;
+      }
+      .kinfo .front {
+        gap: 6px;
+      }
+
+      .cover .back,
+      .myinfo .back,
+      .scinfo .back,
+      .winfo .back,
+      .crinfo .back,
+      .hinfo .back,
+      .finfo .back,
+      .skinfo .back,
+      .kinfo .back {
+        transition: all 300ms;
+        transform: rotateY(180deg);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="book">
+      <div class="book-page" id="book1">
+        <input type="radio" name="coverpage" id="c1" />
+        <input type="radio" name="coverpage" id="c2" />
+
+        <div class="cover">
+          <div class="front">
+            <img
+              src="https://m.media-amazon.com/images/I/81QWy0k0mrL._AC_UF1000,1000_QL80_.jpg"
+              alt=""
+            />
+            <label for="c1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://m.media-amazon.com/images/I/81QWy0k0mrL._AC_UF1000,1000_QL80_.jpg"
+              alt=""
+            />
+            <label for="c2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="myinfopage" id="m1" />
+        <input type="radio" name="myinfopage" id="m2" />
+
+        <div class="myinfo">
+          <div class="front">
+            <h1 style="color: rgba(205, 19, 19, 0.959); text-align: center">
+              <i class="fa-solid fa-om"></i>
+            </h1>
+            <br />
+            <h3><u>Personal Information</u></h3>
+            <br />
+            <span>Name :<b>Jay</b></span>
+            <span>Suranme : <b>Dholakiya</b></span>
+            <span>DOB : <b>3 june 1999</b></span>
+            <span>Email : <b>dholakiajay9@gmail.com</b></span>
+            <span>Phone : <b>+91 XXXXXXX515</b></span>
+            <span>Address : <b>Raiya Road</b></span>
+            <span>City : <b>Rajkot</b></span>
+            <span>Country : <b>India</b></span>
+            <span>Work Of Experience : <b>7 years +</b></span>
+            <span>Qualification : <b>Graduate</b></span>
+
+            <label for="m1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://png.pngtree.com/png-vector/20190304/ourmid/pngtree-education-logo-vector-image-png-image_736955.jpg"
+              alt=""
+            />
+            <label for="m2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="scinfopage" id="s1" />
+        <input type="radio" name="scinfopage" id="s2" />
+
+        <div class="scinfo">
+          <div class="front">
+            <h3><u>Education Information</u></h3>
+            <br />
+            <h4>Training / Institution</h4>
+            <span
+              >Tops Technologies (Website Designing and Developing) :
+              <b>Running</b></span
+            >
+            <br />
+            <h4>College</h4>
+            <span>Grace College (BCA) : 89% </span>
+            <br />
+            <h4>School</h4>
+            <span>Innovative School (10th) : 78%</span>
+            <span>Sister Nivedita (12th) : 88%</span>
+
+            <label for="s1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://cdni.iconscout.com/illustration/premium/thumb/man-sitting-at-cafe-working-on-a-laptop-2931900-2464106.png"
+              alt=""
+            />
+            <label for="s2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="winfopage" id="w1" />
+        <input type="radio" name="winfopage" id="w2" />
+
+        <div class="winfo">
+          <div class="front">
+            <h3><u>Work Experience</u></h3>
+            <br />
+
+            <h4><i class="fa-solid fa-building"></i> Ozone Overseas Pvt Ltd</h4>
+            <span><i class="fa-solid fa-briefcase"></i> : Manager / Stock Incharge</span>
+            <span><i class="fa-solid fa-clock"></i> : 3.5 years (2021) <b style="color:green">Active</b></span>
+            <br />
+            <h4><i class="fa-solid fa-building"></i> Bhagwati Auto Idustries</h4>
+            <span><i class="fa-solid fa-briefcase"></i> : Manager / Stock Incharge</span>
+            <span><i class="fa-solid fa-clock"></i> : 2.5 years (2018 - 20)</span>
+            <br />
+            <h4><i class="fa-solid fa-building"></i> Idea Cellular</h4>
+            <span><i class="fa-solid fa-briefcase"></i> : Management / Collection</span>
+            <span><i class="fa-solid fa-clock"></i> : 1.5 years (2016 - 17) </span>
+            <br />
+
+            <label for="w1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://i.pinimg.com/736x/d9/e1/24/d9e1241d22b422cc12b9e36ff018a505.jpg"
+              alt=""
+            />
+
+            <label for="w2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="crinfopage" id="cr1" />
+        <input type="radio" name="crinfopage" id="cr2" />
+
+        <div class="crinfo">
+          <div class="front">
+            <h3><u>Certificates</u></h3>
+            <br />
+
+            <h4>Ozone Overseas Pvt Ltd</h4>
+            <span>Achieved best <b>Manager</b> certificate</span>
+            <span>Achieved best <b>Motivator</b> certificate</span>
+            <br />
+            <h4>Grace College</h4>
+            <span>Achieved <b>1st rank</b> in Sem 3 to 6</span>
+            <br />
+
+            <h4>Sister Nivedita School</h4>
+            <span>Achieved <b>1st rank</b> in School</span>
+
+            <br />
+            <h4>Innovative School</h4>
+            <span
+              >Achieved
+              <b>1st rank</b>
+              in class</span
+            >
+
+            <br />
+
+            <label for="cr1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://previews.123rf.com/images/yummybuum/yummybuum1812/yummybuum181200001/116391294-people-hobbies-persons-and-creative-handicraft-hobby-cartoon-musician-dancer-painter-teacher.jpg"
+              alt=""
+            />
+            <label for="cr2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="hinfopage" id="h1" />
+        <input type="radio" name="hinfopage" id="h2" />
+
+        <div class="hinfo">
+          <div class="front">
+            <h3><u>Hobbies</u></h3>
+            <br />
+            <span>Designing</span>
+            <br />
+            <span>Reading</span>
+            <br />
+            <span>Drawing</span>
+            <br />
+            <span>Travel</span>
+            <br />
+            <span>Listening Music</span>
+            <br />
+
+            <label for="h1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://t3.ftcdn.net/jpg/01/91/31/04/360_F_191310465_fEDv1bPB3HsFVStEUpK6OUNonYbkrlVN.jpg"
+              alt=""
+            />
+            <label for="h2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="finfopage" id="f1" />
+        <input type="radio" name="finfopage" id="f2" />
+
+        <div class="finfo">
+          <div class="front">
+            <h3><u>Family</u></h3>
+            <br />
+            <p>
+              We have <b>four</b> members in our family, my <b>father</b> and
+              <b>brother</b> doing job and <b>mother</b> is housewife.
+            </p>
+            <span style="text-align: center"
+              ><i> " Small family Happy family. " </i></span
+            >
+
+            <label for="f1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://media.licdn.com/dms/image/C4E12AQFzOrOIZSGA7w/article-cover_image-shrink_600_2000/0/1520204364880?e=2147483647&v=beta&t=X4hHoYb3dbBHaH8OEdVGvTVeuO78ab2sANG6mrpdPMY"
+              alt=""
+            />
+
+            <label for="f2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="skillinfopage" id="sk1" />
+        <input type="radio" name="skillinfopage" id="sk2" />
+
+        <div class="skinfo">
+          <div class="front">
+            <h3><u>Skills</u></h3>
+            <br />
+            <span>Problem-Solving</span>
+            <br />
+            <span>Flexibility</span>
+            <br />
+            <span>Teamwork</span>
+            <br />
+            <span>Organization</span>
+            <br />
+            <span>Creativity</span>
+            <br />
+
+            <label for="sk1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://www.mastersoftwaresolutions.com/wp-content/uploads/2014/08/bnr-1.png"
+              alt=""
+            />
+            <label for="sk2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+
+        <input type="radio" name="knowinfopage" id="k1" />
+        <input type="radio" name="knowinfopage" id="k2" />
+
+        <div class="kinfo">
+          <div class="front">
+            <h3><u>Knowledge Of Design and Programming Language</u></h3>
+            
+            <br />
+            
+            
+            <span>HTML </span>
+
+            <span
+              >
+              
+              
+              <div class="lan">
+                <div class="range" id="html"></div></div
+            ></span>
+
+            <span>CSS</span>
+
+            <span
+              ><div class="lan"><div class="range" id="css"></div></div
+            ></span>
+
+            <span>Java Script (in progress)</span>
+
+            <span
+              ><div class="lan"><div class="range" id="js"></div></div
+            ></span>
+
+            <span>Java</span>
+
+            <span
+              ><div class="lan"><div class="range" id="java"></div></div
+            ></span>
+
+            <label for="k1"
+              ><div class="btn"><i class="fa-solid fa-angles-right"></i></div
+            ></label>
+          </div>
+
+          <div class="back">
+            <img
+              src="https://png.pngtree.com/png-vector/20220903/ourmid/pngtree-thank-you-text-decorated-by-floral-ornaments-png-image_6136789.png"
+            />
+            <label for="k2"
+              ><div class="bbtn"><i class="fa-solid fa-angles-left"></i></div
+            ></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
